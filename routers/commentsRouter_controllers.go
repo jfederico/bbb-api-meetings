@@ -7,6 +7,46 @@ import (
 
 func init() {
 
+	beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"] = append(beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"],
+		beego.ControllerComments{
+			Method: "Post",
+			Router: `/`,
+			AllowHTTPMethods: []string{"post"},
+			MethodParams: param.Make(),
+			Params: nil})
+
+	beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"] = append(beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"],
+		beego.ControllerComments{
+			Method: "GetAll",
+			Router: `/`,
+			AllowHTTPMethods: []string{"get"},
+			MethodParams: param.Make(),
+			Params: nil})
+
+	beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"] = append(beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"],
+		beego.ControllerComments{
+			Method: "Get",
+			Router: `/:meetingId`,
+			AllowHTTPMethods: []string{"get"},
+			MethodParams: param.Make(),
+			Params: nil})
+
+	beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"] = append(beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"],
+		beego.ControllerComments{
+			Method: "Put",
+			Router: `/:meetingId`,
+			AllowHTTPMethods: []string{"put"},
+			MethodParams: param.Make(),
+			Params: nil})
+
+	beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"] = append(beego.GlobalControllerRouter["bbb-api-beego/controllers:MeetingController"],
+		beego.ControllerComments{
+			Method: "Delete",
+			Router: `/:meetingId`,
+			AllowHTTPMethods: []string{"delete"},
+			MethodParams: param.Make(),
+			Params: nil})
+
 	beego.GlobalControllerRouter["bbb-api-beego/controllers:ObjectController"] = append(beego.GlobalControllerRouter["bbb-api-beego/controllers:ObjectController"],
 		beego.ControllerComments{
 			Method: "Post",

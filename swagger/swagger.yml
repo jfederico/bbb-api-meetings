@@ -1,0 +1,358 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /meetings/:
+    get:
+      tags:
+      - meetings
+      description: get all meetings
+      operationId: MeetingController.GetAll
+      responses:
+        "200":
+          description: '{meeting} models.Meeting'
+        "403":
+          description: :meetingId is empty
+    post:
+      tags:
+      - meetings
+      description: create meeting
+      operationId: MeetingController.Create
+      parameters:
+      - in: body
+        name: body
+        description: The meeting content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Meeting'
+      responses:
+        "200":
+          description: '{string} models.Meeting.Id'
+        "403":
+          description: body is empty
+  /meetings/{meetingId}:
+    get:
+      tags:
+      - meetings
+      description: find meeting by meetingid
+      operationId: MeetingController.Get
+      parameters:
+      - in: path
+        name: meetingId
+        description: the meetingid you want to get
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{meeting} models.Meeting'
+        "403":
+          description: :meetingId is empty
+    put:
+      tags:
+      - meetings
+      description: update the meeting
+      operationId: MeetingController.Update
+      parameters:
+      - in: path
+        name: meetingId
+        description: The meetingid you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: The body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Meeting'
+      responses:
+        "200":
+          description: '{meeting} models.Meeting'
+        "403":
+          description: :meetingId is empty
+    delete:
+      tags:
+      - meetings
+      description: delete the meeting
+      operationId: MeetingController.Delete
+      parameters:
+      - in: path
+        name: meetingId
+        description: The meetingId you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: meetingId is empty
+  /objects/:
+    get:
+      tags:
+      - objects
+      description: get all objects
+      operationId: ObjectController.GetAll
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Object'
+        "403":
+          description: :objectId is empty
+    post:
+      tags:
+      - objects
+      description: create object
+      operationId: ObjectController.Create
+      parameters:
+      - in: body
+        name: body
+        description: The object content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Object'
+      responses:
+        "200":
+          description: '{string} models.Object.Id'
+        "403":
+          description: body is empty
+  /objects/{objectId}:
+    get:
+      tags:
+      - objects
+      description: find object by objectid
+      operationId: ObjectController.Get
+      parameters:
+      - in: path
+        name: objectId
+        description: the objectid you want to get
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Object'
+        "403":
+          description: :objectId is empty
+    put:
+      tags:
+      - objects
+      description: update the object
+      operationId: ObjectController.Update
+      parameters:
+      - in: path
+        name: objectId
+        description: The objectid you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: The body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Object'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Object'
+        "403":
+          description: :objectId is empty
+    delete:
+      tags:
+      - objects
+      description: delete the object
+      operationId: ObjectController.Delete
+      parameters:
+      - in: path
+        name: objectId
+        description: The objectId you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: objectId is empty
+  /users/:
+    get:
+      tags:
+      - users
+      description: get all Users
+      operationId: UserController.GetAll
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+    post:
+      tags:
+      - users
+      description: create users
+      operationId: UserController.CreateUser
+      parameters:
+      - in: body
+        name: body
+        description: body for user content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "200":
+          description: '{int} models.User.Id'
+        "403":
+          description: body is empty
+  /users/{uid}:
+    get:
+      tags:
+      - users
+      description: get user by uid
+      operationId: UserController.Get
+      parameters:
+      - in: path
+        name: uid
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :uid is empty
+    put:
+      tags:
+      - users
+      description: update the user
+      operationId: UserController.Update
+      parameters:
+      - in: path
+        name: uid
+        description: The uid you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for user content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :uid is not int
+    delete:
+      tags:
+      - users
+      description: delete the user
+      operationId: UserController.Delete
+      parameters:
+      - in: path
+        name: uid
+        description: The uid you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: uid is empty
+  /users/login:
+    get:
+      tags:
+      - users
+      description: Logs user into the system
+      operationId: UserController.Login
+      parameters:
+      - in: query
+        name: username
+        description: The username for login
+        required: true
+        type: string
+      - in: query
+        name: password
+        description: The password for login
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} login success'
+        "403":
+          description: user not exist
+  /users/logout:
+    get:
+      tags:
+      - users
+      description: Logs out current logged in user session
+      operationId: UserController.logout
+      responses:
+        "200":
+          description: '{string} logout success'
+definitions:
+  models.Meeting:
+    title: Meeting
+    type: object
+    properties:
+      Id:
+        type: string
+      Name:
+        type: string
+  models.Object:
+    title: Object
+    type: object
+    properties:
+      ObjectId:
+        type: string
+      PlayerName:
+        type: string
+      Score:
+        type: integer
+        format: int64
+  models.Profile:
+    title: Profile
+    type: object
+    properties:
+      Address:
+        type: string
+      Age:
+        type: integer
+        format: int64
+      Email:
+        type: string
+      Gender:
+        type: string
+  models.User:
+    title: User
+    type: object
+    properties:
+      Id:
+        type: string
+      Password:
+        type: string
+      Profile:
+        $ref: '#/definitions/models.Profile'
+      Username:
+        type: string
+tags:
+- name: objects
+  description: |
+    Operations about object
+- name: users
+  description: |
+    Operations about Users
+- name: meetings
+  description: |
+    Operations about meeting
