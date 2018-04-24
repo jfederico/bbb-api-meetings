@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "bbb-api-beego/routers"
+	_ "bbb-api-meetings/routers"
 
 	"github.com/astaxie/beego"
 )

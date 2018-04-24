@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"bbb-api-beego/models"
+	"bbb-api-meetings/models"
 	"encoding/json"
 
 	"github.com/astaxie/beego"

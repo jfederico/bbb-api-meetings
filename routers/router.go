@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"bbb-api-beego/controllers"
+	"bbb-api-meetings/controllers"
 
 	"github.com/astaxie/beego"
 )
