@@ -1,0 +1,74 @@
+{
+   "envelope":{
+      "name":"MeetingCreatedEvtMsg",
+      "routing":{
+         "sender":"bbb-apps-akka"
+      }
+   },
+   "core":{
+      "header":{
+         "name":"MeetingCreatedEvtMsg"
+      },
+      "body":{
+         "props":{
+            "meetingProp":{
+               "name":"random-773640",
+               "extId":"random-773640",
+               "intId":"ec9d5087d9a52497ddfcb5c73fc6d1d4328547b6-1524768169803",
+               "isBreakout":false
+            },
+            "breakoutProps":{
+               "parentId":"bbb-none",
+               "sequence":0,
+               "breakoutRooms":[
+
+               ]
+            },
+            "durationProps":{
+               "duration":0,
+               "createdTime":1524768169803,
+               "createdDate":"Thu Apr 26 18:42:49 UTC 2018",
+               "maxInactivityTimeoutMinutes":120,
+               "warnMinutesBeforeMax":5,
+               "meetingExpireIfNoUserJoinedInMinutes":5,
+               "meetingExpireWhenLastUserLeftInMinutes":1
+            },
+            "password":{
+               "moderatorPass":"mp",
+               "viewerPass":"ap"
+            },
+            "recordProp":{
+               "record":false,
+               "autoStartRecording":false,
+               "allowStartStopRecording":true
+            },
+            "welcomeProp":{
+               "welcomeMsgTemplate":"<br>Welcome to <b>",
+               "welcomeMsg":"<br>Welcome to <b>",
+               "modOnlyMessage":""
+            },
+            "voiceProp":{
+               "telVoice":"79922",
+               "voiceConf":"79922",
+               "dialNumber":"613-555-1234",
+               "muteOnStart":false
+            },
+            "usersProp":{
+               "maxUsers":0,
+               "webcamsOnlyForModerator":false,
+               "guestPolicy":"ASK_MODERATOR"
+            },
+            "metadataProp":{
+               "metadata":{
+
+               }
+            },
+            "screenshareProps":{
+               "screenshareConf":"79922-SCREENSHARE",
+               "red5ScreenshareIp":"10.159.224.245",
+               "red5ScreenshareApp":"video-broadcast"
+            }
+         }
+      }
+   }
+}

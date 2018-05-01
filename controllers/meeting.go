@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 
 	"github.com/astaxie/beego"
+	//"github.com/astaxie/beego/logs"
 )
 
 // Operations about meeting
@@ -19,6 +20,7 @@ type MeetingController struct {
 // @Failure 403 body is empty
 // @router / [post]
 func (m *MeetingController) Post() {
+	beego.Debug(">>>>>>>>>>>>>>>> POST /meetings/")
 	var meeting models.Meeting
 	json.Unmarshal(m.Ctx.Input.RequestBody, &meeting)
 	meetingid := models.AddMeeting(meeting)
@@ -33,6 +35,7 @@ func (m *MeetingController) Post() {
 // @Failure 403 :meetingId is empty
 // @router /:meetingId [get]
 func (o *MeetingController) Get() {
+	beego.Debug(">>>>>>>>>>>>>>>>>> GET /meetings/")
 	meetingId := o.Ctx.Input.Param(":meetingId")
 	if meetingId != "" {
 		ob, err := models.GetOne(meetingId)
